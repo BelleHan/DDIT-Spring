@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="sum" class="com.java.module.Summation" />
+	<bean id="minus" class="com.java.module.Minus" />
+	<bean id="multi" class="com.java.module.Multiplex" />
+	<bean id="divide" class="com.java.module.Divide" />
+	
+	<bean id="sumEX" class="com.java.module.SummationEX" />
+	
+	<bean id="calctemp" class="com.java.main.Calculator"
+		p:divide-ref="divide"
+		p:sum-ref="sumEX"
+		p:multi-ref="multi"
+		p:minus-ref="minus"
+	/>
+	<bean id="calc" class="com.java.main.Calculator"
+		p:divide-ref="divide"
+		p:sum-ref="sum"
+		p:multi-ref="multi"
+		p:minus-ref="minus"
+	/>
+	
+	
+</beans>
